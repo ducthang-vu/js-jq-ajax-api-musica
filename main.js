@@ -27,7 +27,7 @@ $(document).ready(function() {
 			$('#genre-select').change(function() {
 				$('.cds-container').html('');
 
-				var userChoise = $(this).children(':selected')[0].value;
+				var userChoise = $(this).children(':selected').val();
 				data.response.forEach(item => {
 					if (userChoise === 'all' || item.genre === userChoise) printCard($('.cds-container'), item);
 				});
