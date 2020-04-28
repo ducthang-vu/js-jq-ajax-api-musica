@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 		success: data => {
 			// print all on page load
-			data.response.forEach(item => printCard($('.cds-container'), item))
+			data.response.forEach(item => printCard($('.cds-container'), item));
 
 			// print when select input is changed
 			$('#genre-select').change(function() {
