@@ -17,32 +17,23 @@ $(document).ready(function() {
 
 	$.ajax({
 		url: "https://flynn.boolean.careers/exercises/api/array/music",
-		method: "GET",
+		method: "GET", 
 
 		success: data => {
 			// print all on page load
-			data.response.forEach(item =>
-				printCard($('.cds-container'), item)
-			)
+			data.response.forEach(item => printCard($('.cds-container'), item))
 
 			// print when select input is changed
 			$('#genre-select').change(function() {
-				$('.cds-container').html('')
+				$('.cds-container').html('');
+
 				var userChoise = $(this).children(':selected')[0].value;
-				
 				data.response.forEach(item => {
-					if (userChoise === 'all') {printCard($('.cds-container'), item)}
-					else if (item.genre === userChoise) {
-						printCard($('.cds-container'), item)
-					}
+					if (userChoise === 'all' || item.genre === userChoise) printCard($('.cds-container'), item);
 				});
-					
 			})
 		},
 
 		error: () => console.log('Error')
 	});
-	
-	
-	
 });
