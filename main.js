@@ -31,7 +31,7 @@ $(document).ready(function() {
 				data.response.forEach(item => {
 					if (userChoise === 'all' || item.genre === userChoise) printCard($('.cds-container'), item);
 				});
-			})
+			});
 		},
 
 		error: () => console.log('Error')
